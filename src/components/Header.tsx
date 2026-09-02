@@ -1,12 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { navigation, companyName, contactInfo } from "@/data/site-data";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleScroll = () => setIsOpen(false);
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-white/95 backdrop-blur">
@@ -69,7 +91,7 @@ export default function Header() {
       </nav>
 
       {isOpen && (
-        <div className="lg:hidden border-t border-gray-200 bg-white">
+        <div ref={menuRef} className="lg:hidden border-t border-gray-200 bg-white">
           <div className="container-page py-4 flex flex-col gap-3">
             {navigation.map((item) => (
               <Link

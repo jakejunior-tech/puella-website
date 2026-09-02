@@ -1,6 +1,24 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, ShieldCheck, Headset, Wrench } from "lucide-react";
 import { companyName, contactInfo } from "@/data/site-data";
+
+const capabilities = [
+  {
+    icon: ShieldCheck,
+    title: "Safety Certified",
+    description: "Equipment maintained to safe operating standards.",
+  },
+  {
+    icon: Headset,
+    title: "24/7 Support",
+    description: "Responsive support throughout your project.",
+  },
+  {
+    icon: Wrench,
+    title: "Expert Maintenance",
+    description: "Serviced machinery ready for demanding work.",
+  },
+];
 
 const footerLinks = {
   company: [
@@ -27,6 +45,20 @@ export default function Footer() {
   return (
     <footer className="bg-secondary text-gray-300">
       <div className="container-page section-padding pb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 rounded-xl border border-gray-800 bg-gray-900/50 p-6">
+          {capabilities.map((cap) => (
+            <div key={cap.title} className="flex items-start gap-3">
+              <div className="h-10 w-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center flex-shrink-0">
+                <cap.icon className="h-5 w-5" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-white">{cap.title}</h4>
+                <p className="text-sm text-gray-400">{cap.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -117,9 +149,14 @@ export default function Footer() {
       <div className="border-t border-gray-800">
         <div className="container-page py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <p>
-            © {new Date().getFullYear()} {companyName} Equipment Services. All rights reserved.
+            &copy; {new Date().getFullYear()} {companyName} Equipment Services. All rights reserved.
           </p>
-          <p>Demo website — details subject to confirmation.</p>
+          <div className="flex items-center gap-4">
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+            <Link href="/equipment" className="hover:text-primary transition-colors">Equipment</Link>
+            <Link href="/services" className="hover:text-primary transition-colors">Services</Link>
+            <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>
+          </div>
         </div>
       </div>
     </footer>

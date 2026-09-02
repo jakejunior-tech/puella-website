@@ -13,6 +13,7 @@ const inputClass =
 
 export default function QuoteRequestForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [showMore, setShowMore] = useState(false);
   const [selectedEquipment, setSelectedEquipment] = useState(() => {
     if (typeof window === "undefined") return "";
     return new URLSearchParams(window.location.search).get("equipment") || "";
@@ -38,22 +39,11 @@ export default function QuoteRequestForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 gap-5">
         <div className="space-y-2">
           <Label htmlFor="name">Full Name</Label>
           <Input id="name" name="name" placeholder="Your full name" required />
         </div>
-        <div className="space-y-2">
-          <Label htmlFor="company">Company</Label>
-          <Input
-            id="company"
-            name="company"
-            placeholder="Company name (optional)"
-          />
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div className="space-y-2">
           <Label htmlFor="phone">Phone Number</Label>
           <Input
@@ -64,18 +54,6 @@ export default function QuoteRequestForm() {
             required
           />
         </div>
-        <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Your email address"
-          />
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div className="space-y-2">
           <Label htmlFor="equipment">Equipment or Service Required</Label>
           <Input
@@ -100,42 +78,78 @@ export default function QuoteRequestForm() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div className="space-y-2">
-          <Label htmlFor="location">Project Location</Label>
-          <Input
-            id="location"
-            name="location"
-            placeholder="City / State"
-            required
-          />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="duration">Rental Duration</Label>
-          <select id="duration" name="duration" className={inputClass}>
-            <option value="">Select duration</option>
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
-            <option value="monthly">Monthly</option>
-            <option value="quarterly">3+ months</option>
-            <option value="annual">Long-term / Annual</option>
-          </select>
-        </div>
-      </div>
+      <button
+        type="button"
+        onClick={() => setShowMore(!showMore)}
+        className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary-dark transition-colors"
+      >
+        {showMore ? "Hide extra details" : "Add more details"}
+        <span
+          className={`text-xs transition-transform ${showMore ? "rotate-180" : ""}`}
+        >
+          ▼
+        </span>
+      </button>
 
-      <div className="space-y-2">
-        <Label htmlFor="startDate">Expected Start Date</Label>
-        <Input id="startDate" name="startDate" type="date" />
-      </div>
+      {showMore && (
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="space-y-2">
+              <Label htmlFor="company">Company</Label>
+              <Input
+                id="company"
+                name="company"
+                placeholder="Company name (optional)"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Your email address"
+              />
+            </div>
+          </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="message">Additional Requirements</Label>
-        <Textarea
-          id="message"
-          name="message"
-          placeholder="Tell us more about your project needs (optional)"
-        />
-      </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="space-y-2">
+              <Label htmlFor="location">Project Location</Label>
+              <Input
+                id="location"
+                name="location"
+                placeholder="City / State"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="duration">Rental Duration</Label>
+              <select id="duration" name="duration" className={inputClass}>
+                <option value="">Select duration</option>
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="quarterly">3+ months</option>
+                <option value="annual">Long-term / Annual</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="startDate">Expected Start Date</Label>
+            <Input id="startDate" name="startDate" type="date" />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="message">Additional Requirements</Label>
+            <Textarea
+              id="message"
+              name="message"
+              placeholder="Tell us more about your project needs (optional)"
+            />
+          </div>
+        </>
+      )}
 
       <Button type="submit" size="lg" className="w-full">
         Submit Request

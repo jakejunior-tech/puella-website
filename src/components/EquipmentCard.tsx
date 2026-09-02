@@ -8,8 +8,9 @@ export default function EquipmentCard({ equipment }: { equipment: Equipment }) {
   return (
     <Card className="group overflow-hidden">
       <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-300/40 to-transparent" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="h-16 w-16 rounded-full bg-gray-200 animate-pulse" />
+          <div className="h-16 w-16 rounded-full bg-gray-200 animate-pulse ring-1 ring-gray-300/50" />
         </div>
         <div className="absolute top-3 right-3">
           {equipment.availability ? (
@@ -35,14 +36,20 @@ export default function EquipmentCard({ equipment }: { equipment: Equipment }) {
             </span>
           ))}
         </div>
-        <p className="text-xs text-gray-400 mt-3">
+        <p
+          className={`text-xs mt-3 ${
+            equipment.specifications.startsWith("Specifications")
+              ? "text-gray-400 italic"
+              : "text-gray-400"
+          }`}
+        >
           {equipment.specifications}
         </p>
       </CardContent>
       <CardFooter className="p-5 pt-0">
         <Link
           href={`/contact?equipment=${encodeURIComponent(equipment.name)}`}
-          className="w-full flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-semibold py-2.5 rounded-lg transition-colors"
+          className="w-full flex items-center justify-center bg-primary hover:bg-primary-dark text-white text-sm font-bold py-2.5 rounded-lg shadow-sm hover:shadow-md transition-all ring-1 ring-black/5"
         >
           Request This Equipment
         </Link>

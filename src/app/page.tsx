@@ -21,13 +21,14 @@ export default function Home() {
 
       <main className="flex-1">
         <section className="relative overflow-hidden bg-secondary text-white">
-          <div className="absolute inset-0 hero-pattern" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-secondary/80 to-secondary" />
+          <div className="absolute inset-0 hero-pattern opacity-50" />
           <div className="relative container-page py-24 md:py-32">
             <div className="max-w-3xl">
               <Badge className="mb-6 bg-primary/20 text-primary border-primary/30">
                 Equipment Leasing & Industrial Solutions
               </Badge>
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
+              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
                 Powering Projects With Reliable{" "}
                 <span className="gradient-text">Equipment</span> &amp;
                 Industrial Solutions
