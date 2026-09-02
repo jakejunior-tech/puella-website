@@ -51,7 +51,7 @@ export default function Home() {
                   Request a Quote
                 </Link>
               </div>
-              <div className="mt-12 grid grid-cols-3 max-w-md gap-6">
+              <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 max-w-md gap-6">
                 <div>
                   <p className="text-2xl font-bold">8+</p>
                   <p className="text-sm text-gray-400">Service Categories</p>
@@ -61,7 +61,7 @@ export default function Home() {
                   <p className="text-sm text-gray-400">Equipment Types</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold">Nationwide</p>
+                  <p className="text-2xl font-bold min-w-0 break-words">Nationwide</p>
                   <p className="text-sm text-gray-400">Coverage</p>
                 </div>
               </div>
