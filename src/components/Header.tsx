@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, Phone, Mail } from "lucide-react";
-import { navigation, companyName, contactInfo } from "@/data/site-data";
+import { Menu, X } from "lucide-react";
+import { navigation, companyName } from "@/data/site-data";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,24 +32,6 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-white/95 backdrop-blur">
-      <div className="bg-secondary text-white text-xs py-2">
-        <div className="container-page flex items-center justify-between">
-          <p className="hidden sm:block">
-            {contactInfo.address}
-          </p>
-          <div className="flex w-full sm:w-auto items-center gap-4 sm:gap-6 justify-end">
-            <a href={`tel:${contactInfo.phone}`} className="hover:text-primary flex items-center gap-1.5">
-              <Phone className="h-3 w-3" />
-              {contactInfo.phone}
-            </a>
-            <a href={`mailto:${contactInfo.email}`} className="hover:text-primary flex items-center gap-1.5">
-              <Mail className="h-3 w-3" />
-              <span className="hidden sm:inline">{contactInfo.email}</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
       <nav className="container-page flex items-center justify-between py-4">
         <Link href="/" className="flex items-center gap-2">
           <div className="h-10 w-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-lg">
