@@ -10,13 +10,13 @@ const capabilities = [
   },
   {
     icon: Headset,
-    title: "24/7 Support",
-    description: "Responsive support throughout your project.",
+    title: "Customer Support",
+    description: "Support arrangements to be confirmed with PUELLA.",
   },
   {
     icon: Wrench,
-    title: "Expert Maintenance",
-    description: "Serviced machinery ready for demanding work.",
+    title: "Serviced Equipment",
+    description: "Maintenance details to be confirmed with PUELLA.",
   },
 ];
 
