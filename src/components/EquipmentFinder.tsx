@@ -38,7 +38,7 @@ export default function EquipmentFinder() {
   }
 
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+    <div className="rounded-2xl border border-gray-200 bg-white text-gray-900 shadow-sm overflow-hidden">
       <div className="bg-secondary text-white px-6 py-5">
         <div className="flex items-center justify-between">
           <h3 className="font-bold text-lg">Find the Right Equipment</h3>
