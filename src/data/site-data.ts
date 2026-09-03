@@ -20,9 +20,9 @@ export interface Service {
 export const companyName = "PUELLA";
 
 export const contactInfo = {
-  phone: "0801 234 5678",
-  whatsapp: "0801 234 5678",
-  email: "info@puellaequipmentservices.com",
+  phone: "Contact details to be confirmed",
+  whatsapp: "Contact details to be confirmed",
+  email: "Contact details to be confirmed",
   address: "Port Harcourt, Rivers State, Nigeria",
 };
 

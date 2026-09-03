@@ -14,9 +14,9 @@ export default function EquipmentCard({ equipment }: { equipment: Equipment }) {
         </div>
         <div className="absolute top-3 right-3">
           {equipment.availability ? (
-            <Badge variant="success">Available</Badge>
+            <Badge variant="outline">Availability: Contact PUELLA</Badge>
           ) : (
-            <Badge variant="outline">Contact for availability</Badge>
+            <Badge variant="outline">Availability: Contact PUELLA</Badge>
           )}
         </div>
       </div>

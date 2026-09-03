@@ -5,8 +5,8 @@ import { companyName, contactInfo } from "@/data/site-data";
 const capabilities = [
   {
     icon: ShieldCheck,
-    title: "Safety Certified",
-    description: "Equipment maintained to safe operating standards.",
+    title: "Equipment Maintenance",
+    description: "Maintenance standards and certifications to be confirmed.",
   },
   {
     icon: Headset,
