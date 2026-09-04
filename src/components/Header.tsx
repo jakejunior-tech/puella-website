@@ -40,7 +40,7 @@ export default function Header() {
           <div className="leading-tight">
             <span className="font-bold text-lg tracking-tight">{companyName}</span>
             <span className="block text-[10px] uppercase tracking-widest text-gray-500">
-              Equipment Services
+              Equipment Services Limited
             </span>
           </div>
         </Link>

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "PUELLA | Equipment Leasing & Industrial Solutions",
+    default: "Puella Equipment Services Limited",
     template: "%s | PUELLA",
   },
   description:

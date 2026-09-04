@@ -149,7 +149,7 @@ export default function Footer() {
       <div className="border-t border-gray-800">
         <div className="container-page py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <p>
-            &copy; {new Date().getFullYear()} {companyName} Equipment Services. All rights reserved.
+            &copy; {new Date().getFullYear()} {companyName} Equipment Services Limited. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>

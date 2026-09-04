@@ -114,7 +114,7 @@ export default function AboutPage() {
               </ul>
               <p className="mt-6 text-xs text-gray-400">
                 Company registration and certification details to be confirmed
-                directly with PUELLA Equipment Services.
+                directly with Puella Equipment Services Limited.
               </p>
             </div>
           </div>
